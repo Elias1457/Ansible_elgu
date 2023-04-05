@@ -4,11 +4,25 @@
   become: true
   tasks:
 
-  - name: insatll apache2 package
+  - name: upgrade and update cache
+    apt:
+      upgrade: dist
+      update_cache: yes
+
+  - name: insatll apache and php
     apt:
       name:
         - apache2
         - libapache2-mod-php
       state: latest
-      update_cache: yes
-    when: ansible_distribution == "Ubuntu"
+
+
+- hosts: file_servers
+  become: true
+  tasks:
+
+  - name: install samba
+    apt:
+      name:
+        - samba
+      state: latest
