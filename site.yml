@@ -2,18 +2,38 @@
 
 - hosts: all
   become: true
-  tasks:
+  pre_tasks:
 
   - name: upgrade and update cache
+    tags: always
     apt:
       upgrade: dist
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
+
+- hosts: all
+  become: true
+  tasks:
+
   - name: insatll apache and php
+    tags: apache,apache2,ubuntu
     apt:
       name:
         - apache2
         - libapache2-mod-php
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+
+- hosts: file_servers
+  become: true
+  tasks:
+
+  - name: install samba
+    tags: samba,ubuntu
+    apt:
+      name:
+        - samba
       state: latest
     when: ansible_distribution == "Ubuntu"

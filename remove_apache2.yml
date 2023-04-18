@@ -8,11 +8,6 @@
     apt:
       update_cache: yes
 
-  - name: uninsatll apache2 package
-    apt:
-      name: apache2
-      state: absent
-
   - name: add php support for apache
     apt:
       name: libapache2-mod-php
