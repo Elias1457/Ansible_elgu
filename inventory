@@ -1,9 +1,4 @@
----
-foo:
-  hosts:
-    foo1:
-      ansible_user: elgu
-      ansible_password: '{{ lookup("env", "Superadmin123") }}'
+
 
 [other]
 192.168.1.104
@@ -13,3 +8,10 @@ foo:
 
 [file_servers]
 192.168.1.108
+
+---
+foo:
+  hosts:
+    foo1:
+      ansible_user: elgu
+      ansible_password: '{{ lookup("env", "Superadmin123") }}'
