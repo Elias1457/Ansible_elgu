@@ -2,8 +2,8 @@
 foo:
   hosts:
     foo1:
-      ansible_user: ansible
-      ansible_password: '{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+      ansible_user: elgu
+      ansible_password: '{{ lookup("env", "Superadmin123") }}'
 
 [other]
 192.168.1.104
