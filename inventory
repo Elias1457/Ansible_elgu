@@ -1,6 +1,4 @@
-
-
-[other]
+[others]
 192.168.1.104
 192.168.1.105
 192.168.1.109
@@ -8,10 +6,3 @@
 
 [file_servers]
 192.168.1.108
-
----
-foo:
-  hosts:
-    foo1:
-      ansible_user: elgu
-      ansible_password: '{{ lookup("env", "Superadmin123") }}'
